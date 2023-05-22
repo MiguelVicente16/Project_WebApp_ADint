@@ -1,0 +1,295 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!--------------------------------------------------Container---------------------------------------------------->  
+<div class="d-grid" > 
+
+  <span id = "top"></span>
+  
+  <!---------------------------------------------------------------------------------------------------------->  
+  <div class="p-2" style="margin-top: 10px; width: 100%; position: relative;" >
+    
+    <!-----------------------------------------Perfil Dropdown Button------------------------------------->
+    <div class="navbar" >
+      <div class="dropdown" style="background: transparent;">
+      <button class="drop" style="margin-left: 30px;" onclick="myFunction('myDropdown')">Menu
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown" style="background-color: #5c8aff; border-radius: 20px; width: auto;">
+        <a  aria-current="page" style="margin-left: auto;"><button style="margin-left:12%; margin-right: 12%;" id ="home">Home</button></a>
+        <a  aria-current="page" style="margin: auto;"><button id="button_evaluation" class="ghost">New evaluation</button></a>
+        <a  aria-current="page"  style="margin: auto;"><button id="button_course"  class="ghost">List of all Courses</button></a>
+        <a  aria-current="page"style="margin: auto;"><button id="button_activity" class="ghost">Create an Activity</button></a>
+      </div>
+      </div> 
+      
+      <a  aria-current="page"  style = "margin-right: 30px ;"href="/logout"><button class="ghost">Logout</button></a>
+    </div>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <br>
+
+    <!-----------------------------------------Perfil Dropdown Button------------------------------------->
+    <div class="dropdown" style="margin-bottom: 60px; background: transparent; width: 100%;position: relative;">
+    <button class="drop" style="margin:auto; margin-bottom: 50px ;position: absolute; left: 50%;  -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);" onclick="myFunction('myDropdown2')">Profile
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown2" style="background: transparent; box-shadow: none; border-radius: 20px; width: 100%; margin-top: 10px;">
+      <div class ="user_info">
+        {{student_name}} | {{user_name}} <br>
+          {{email}}
+      </div>
+    </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------->
+
+
+    <!-----------------------------------------Create_Evaluation------------------------------------->
+    <div id = "home_div" style="width:100%; height: auto;  margin: auto;margin-top: 30px; display: inline-block;">  
+    <div class="grid text-center"  style="margin: auto; width: auto;">
+      <div style="margin: auto; width: 100%;">
+        <div class="row" style="margin: auto; width: 100%;">
+          <div class="col" style="margin-bottom: 50px;">
+            <div class="card" style="width: 12rem;  margin: auto;">
+              <img src="https://img.icons8.com/external-sbts2018-outline-color-sbts2018/344/external-course-basic-ui-elements-2.3-sbts2018-outline-color-sbts2018.png" 
+              class="card-img-top" alt="...">
+              <div class="card-body" style="width: 100%; margin: auto;">
+                <h5 class="card-title">List of all Courses</h5>
+                <p class="card-text"></p>
+                <a><button id ="butao_curso" class="ghost">Go to</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col" style="margin-bottom: 50px;">
+            <div class="card"  style="width: 12rem;  margin: auto;">
+              <img src="https://cdn-icons-png.flaticon.com/512/4762/4762311.png"
+              class="card-img-top" alt="...">
+              <div class="card-body"  style="width: 100%; margin: auto;">
+                <h5 class="card-title">New evaluation of Service</h5>
+                <p class="card-text"></p>
+                <a><button id ="butao_avaliacao" class="ghost" >Go to</button></a>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col" style="margin-bottom: 50px;">
+            <div class="card"  style="width: 12rem;  margin: auto;">
+              <img src="https://cdn-icons-png.flaticon.com/512/4852/4852363.png" 
+              class="card-img-top" alt="...">
+              <div class="card-body"  style="width: 100%; margin: auto;">
+                <h5 class="card-title">Create an Activity</h5>
+                <p class="card-text"></p>
+                <a ><button id ="butao_atividade" class="ghost">Go to</button></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+    <!----------------------------------------------------------------------------------------------->
+
+    <!-----------------------------------------Create_Evaluation------------------------------------->
+      <div id="Create_evaluation" style="display: none; height: auto; width: 100%;">
+
+        <div class="grid text-center" style="margin-top:30px;">
+          <h3  style="color: white;">New Evaluation</h3>
+        </div>
+        <div class="p-2">
+          <form name = "input" id = "input" class="form-inline" >
+            
+            <div  style="margin-top: -10px ;" class="form-group">
+              <label for="service" class="form-label" style="color: white;" ></label>
+              <select class="form-select" id = "service" onchange="changeStatus();" name = "service">
+                <option value = "nenhuma"  selected class="form-control">Click and pick a service to evaluate</option>
+              </select>
+            </div>
+          
+            <div style="margin-top: -10px ;" class="form-group">
+              <label for="evaluation" class="form-label" id = "label_txt" style="visibility:hidden; color: white;" onchange="changeStatus()"></label>
+              <textarea placeholder ="Write an evaluation of a service" id = "evaluation" name ="evaluation" class="form-control" rows="3" onchange="changeStatus()" style="visibility:hidden"></textarea>
+            </div>
+            <br>
+          </form>
+          <div style="margin-top: 50px;">
+            <div class="d-grid gap-2" style="position: relative;">
+                <button form = "input" id = "submit_evaluation" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!----------------------------------------------------------------------------------------------->
+
+    <!-----------------------------------------Create_Courses---------------------------------------->
+      <div id="List_Courses" style="display: none; height: auto; width: 100%; ">
+        <div class="grid text-center" style="margin-top:30px;">
+          <h3  style="color: white;">List of all courses of {{student_name}}</h3>
+        </div>
+        <div class="p-2" style="background-color: transparent">
+            <ol id ="course_list" class="list-group ">
+            </ol>
+        </div>
+        
+      </div>
+    <!----------------------------------------------------------------------------------------------->
+
+    <!------------------------------------------Create_Activity-------------------------------------->
+        <div id="Create_Activity" style="display: none; height: auto; width: 100%;">
+        <div class="grid text-center" style="margin-top:30px;">
+            <h3  style="color: white;"> New Activity</h3>
+          </div>
+        
+          <div class="p-2" style="margin-top: 10px; height: 100%; position: relative;">
+            <!-- Tab links -->
+            <div class="tab">
+                <button id = "tab_button_Personal" class="tablinks" onclick="openTab('Personal_tab', 'Academic_tab','Administrative_tab', 
+                'tab_button_Personal', 'tab_button_Academic', 'tab_button_Administrative')">Personal</button>
+                <button  id = "tab_button_Academic" class="tablinks" onclick="openTab( 'Academic_tab','Personal_tab','Administrative_tab',
+                'tab_button_Academic', 'tab_button_Personal', 'tab_button_Administrative')">Academic</button>
+                <button  id = "tab_button_Administrative" class="tablinks" onclick="openTab( 'Administrative_tab', 'Personal_tab','Academic_tab',
+                'tab_button_Administrative', 'tab_button_Personal', 'tab_button_Academic')"><span style="display: inline-block;">Administrative</span></button>
+            </div>
+        
+                <!-- Tab content -->
+                <div id="Personal_tab" class="tabcontent" style="display: none; width:95%; margin-bottom: 40px;">
+                  <form id = "input1" action = '/activities/new' method="post" style= "position: relative; width: 100%;">
+                    <div id = "myDIV" style="display: block; width: 100%; position: relative;
+                    border-radius: 10px; background-color: rgb(225, 230, 255);"  >
+                    
+                      <div class="form-check" style= "margin: 5px 15px 5px;">
+                        <input class="form-check-input" style = "border: 1px solid black; position: relative; "type="radio" name="Personal" id="Personal" value = "Sleep" onclick="changeStatus_activity(1)"required>
+                        <label class="form-check-label" for="Personal" style="position: relative;">
+                          Sleep
+                        </label>
+                      </div>
+                
+                      <div class="form-check" style= "margin: 3px 15px 5px;">
+                        <input class="form-check-input" style = " border: 1px solid black; position: relative; " type="radio" name="Personal" id="Personal" value = "Eat" onclick="changeStatus_activity(2)" required>
+                        <label class="form-check-label" for="Personal">
+                          Eat 
+                        </label>
+                      </div>
+                
+                      <div class="form-check" style= "margin: 3px 15px 5px ;">
+                        <input class="form-check-input" style = " border: 1px solid black; position: relative; " type="radio" name="Personal" id="Personal" value = "Leisure" onclick="changeStatus_activity(3)" required>
+                        <label class="form-check-label" for="Personal">
+                          Leisure
+                        </label>
+                      </div>
+                
+                      <div class="form-check" style= "margin: 3px 15px 5px ;">
+                        <input class="form-check-input" style = "border: 1px solid black; position: relative; " type="radio" name="Personal" id="Personal" value = "Sports" onclick="changeStatus_activity(4)" required>
+                        <label class="form-check-label" for="Personal">  
+                          Sports
+                        </label>
+                      </div>
+                
+                      <div class="form-check" style= "margin: 3px 15px 5px ;">
+                        <input class="form-check-input" style = " border: 1px solid black; position: relative; " type="radio" name="Personal" id="Personal" value = "Other" onclick="changeStatus_activity(5)" required>
+                        <label class="form-check-label" for="Personal">
+                          Other
+                        </label>
+                      </div>
+                
+                      <div id = "appear_txt_area" style="display: none;">
+                        <textarea placeholder = "Insert the name of the activity" id = "newactivity" name ="newactivity" class="form-control" rows="1"></textarea>
+                      </div>
+                      <label for="date_Personal_start">Start:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Personal_start" name="date_Personal_start" required>
+                      <br>
+                      <label for="date_Personal_end" >End:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Personal_end" name="date_Personal_end" required>
+                      <div style= "position:absolute; width: 100%;" id = "button_personal">
+                        <button style ="width: 100%; border-radius: 10px;"form = "input1" class="btn btn-primary" type="submit">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+        
+                <div id="Academic_tab" class="tabcontent" style="display: none; width:95%;margin-bottom: 40px;">
+                  
+                  <form id = "input2" action = '/activities/new' method="post" style= "position: relative; width: 100%;">
+                    <div id = "myDIV2"style="display: block; width: 100%; position: relative;
+                    border-radius: 10px; background-color: rgb(225, 230, 255);">
+                      
+                      <div class="form-check" style= "margin: 3px 15px 5px ;">
+                        <input class="form-check-input" style = " border: 1px solid black; position: relative; " type="radio" name="Academic" id="Academic" value = "Study" required onclick="hide_show_checkbox(0)" required>
+                          <label  style = "margin: auto;" class="form-check-label" for="Academic">
+                          Study
+                        </label>
+                      </div>
+        
+                      <div class="form-check" style= "margin: 3px 15px 5px ;">
+                        <input class="form-check-input" style = " border: 1px solid black; position: relative; " type="radio" name="Academic" id="Academic" value="Attend_classes" onclick="hide_show_checkbox(1)" required>
+                        <label class="form-check-label" for="Academic">
+                          Attend classes
+                        </label>
+                      </div>
+        
+                      <div id = "Courses_check" style="display: none;">
+                        
+                      </div>
+                      <label for="date_Personal">Start:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Academic_start" name="date_Academic_start" required>
+                      <br>
+                      <label for="date_Personal">End:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Academic_end" name="date_Academic_end" required>
+                      <div style= "position:absolute; width: 100%;" id = "button_academic">
+                        <button style ="width: 100%;"form = "input2" class="btn btn-primary" type="submit">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+        
+                <div id="Administrative_tab" class="tabcontent" style="display: none; width:95%; margin-bottom: 40px;">
+                  
+                  <form id = "input3" name = "input3" action = '/activities/new' method="post"  style= "position: relative; width: 100%;">
+                    <div id = "myDIV3" style="display: block; width: 100%; position: relative;
+                    border-radius: 10px; background-color: rgb(225, 230, 255);">
+                      <div id = "Administrative_check">
+                        
+                      </div>
+                      <label for="date_Personal">Start:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Administrative_start" name="date_Administrative_start" required>
+                      <br>
+                      <label for="date_Personal">End:</label>
+                      <input class ="date_Personal" type="datetime-local" id="date_Administrative_end" name="date_Administrative_end" required>
+                      <div style= "position:static; width: 100%;" >
+                        <button style ="width: 100%;"form = "input3" id = "button_administrative"class="btn btn-primary" type="submit">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="grid text-center" style="margin-top:60px;">
+                  <h3  style="color: white;"> Statistics</h3>
+                </div>
+                <div class="grid text-center" id ="plot" style="width: 100%; margin-top: 50px;" >
+                </div>
+
+                <div class="grid text-center" style="margin-top:60px;">
+                  <h4 style="color: white;"> List of all activities by {{student_name}}</h4>
+                </div>
+                <table id="table">
+
+                </table>
+          </div>
+        </div>
+    <!----------------------------------------------------------------------------------------------->
+
+  </div>
+  <!---------------------------------------------------------------------------------------------------------->
+
+</div>
+<!--------------------------------------------------------------------------------------------------------------->  
+
+<footer>
+	<p>
+		Created by João Gomes 96248 & Miguel Vicente 96288 & Matilde Oliva 96283 
+	</p>
+</footer>
+
+{% endblock %}

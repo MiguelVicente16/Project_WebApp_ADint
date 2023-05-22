@@ -1,0 +1,272 @@
+
+/*-------------------------------DropDown-------------------------------*/
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3498DB;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3498DB;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #000be4; border-radius: 20px;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}    
+/*-------------------------------DropDown-------------------------------*/
+table {
+margin: auto;
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 60%;
+background-color: #62d0ff;
+border: 3px solid black;
+margin-bottom: 50px;
+}
+
+td, th {
+border: 1px solid #525252;
+text-align: center;
+padding: 6px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+    /* Style the tab */
+.tab {
+overflow: hidden;
+background-color: transparent;
+border-radius: 20px;
+width:95%;
+margin: auto;
+position: static;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button { 
+background-color: #000be4;
+border: 1px solid;
+border-color: #fff;
+color: #fff;
+width: 33.33%;
+cursor: pointer;
+box-shadow: none;
+padding: 15px 10px;
+transition: 0.3s;
+display: block;
+float: left;
+text-align: center;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+background-color: #5a62fe;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+background-color: rgb(225, 230, 255);
+color: black;
+}
+
+/* Style the tab content */
+.tabcontent {
+width: 100vx;
+margin: auto;
+background: transparent;
+}
+body, html {
+width: 100%;
+min-width: 412px;
+height: auto;
+min-height: 900px;
+/* The image used */
+/*background-image: url("{{url_for('static', filename = 'ist_back.jpg')}}");*/
+background: #ffffff;
+background-size: cover;
+justify-content: center;
+align-items: center;
+font-family: 'Montserrat', sans-serif;
+/* Full height */
+}
+
+.d-grid{
+width: 100%;
+height: auto;
+background: #ffffff;
+background: -webkit-linear-gradient(to top, #ffffff,#5c8aff ,#0b4df6);
+background: linear-gradient(to top, #ffffff,#5c8aff, #0b4df6);
+background-size: cover;
+align-content: center;
+}
+
+.p-2{
+width: 100%;
+}
+.d-grid.gap-2{
+background-color: transparent;
+border-radius: 20px;
+bottom: 10px;
+margin: auto;
+width: 30%;
+}
+
+.user_info{
+background: #5787ff;
+background: -webkit-linear-gradient(to top, #5787ff, #1a5bff);
+background: linear-gradient(to top, #5787ff, #1a5bff);
+background-size: cover;
+border-radius: 20px;
+box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
+            0 5px 5px rgba(0,0,0,0.22);
+border: 2px solid black;
+width: 320px;
+position: relative;
+padding: 8px;
+letter-spacing: 1px;
+font-weight: bold;
+text-align: center; 
+padding: auto;
+color: white; 
+margin: auto;
+margin-bottom: 20px;
+margin-top: 20px;
+font-size: 13px;
+}
+
+.date_Personal{
+margin: 10px;
+border-radius: 10px;
+background-color:  rgba(225, 230, 255, 0.744);
+width: 80%;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    background-color: #000be4;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
+            0 5px 5px rgba(0,0,0,0.22);
+}
+
+.nav-link{
+    border-radius: 20px;
+    border: 1px solid #000be4;
+    background-color: #000be4;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+form {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.plot {
+  border-radius: 20px; 
+  box-shadow: 0 5px 5px rgba(0,0,0,0.25),0 5px 5px rgba(0,0,0,0.22);
+  margin: auto;
+  width: 80%;
+  height: auto;
+  position: relative;
+}
+
+div{
+  background-color: transparent;
+}
+
+.card{
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+            0 10px 10px rgba(0,0,0,0.22);
+}
+.card-body{          
+        background: #00A0E4;
+        background: -webkit-linear-gradient(to right, #62d0ff, #00A0E4);
+        background: linear-gradient(to right, #62d0ff, #00A0E4);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #fff;
+        border-radius: 0 0 10px 10px;
+      }
+
+footer{
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+    padding: 2px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer p {        
+    margin: 10px ;
+}

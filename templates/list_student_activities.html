@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="d-grid" style="align-items: center;">  
+  <div class="p-2" >
+    <ul class="nav nav-pills nav-fill" style="margin-top: 10px;">
+      <li class="nav-item">
+        <a aria-current="page" href="/"><button  class="ghost">Home</button></a>
+      </li>
+      <li class="nav-item">
+        <a   aria-current="page" href="/services"><button class="ghost">Create a Presential Service</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page" href="/evaluations/"><button class="ghost">List all evaluations of a service </button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href ="/courses/"><button class="ghost">List all attendances for a course</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href="/activities/"><button>List all activities by a student</button></a>
+      </li>
+      <li class="nav-item" style="margin-top: 5px;">
+        <a  aria-current="page"  href="/list_services"><button class="ghost">List all services/ Delete a service</button></a>
+      </li>
+    </ul>
+  </div>
+  
+    <div class="grid text-center" style="margin-top:20px;">
+      <h4  style="color: white;"> Activities of a student</h4>
+    </div>
+
+    <div class="p-2">
+      <form action = "/activities/" method="post" name = "activities" id="activities">
+        <div class="mb-3">
+          <label for="student" class="form-label" style="color: white;"></label>
+          <select class="form-select" id = "student" name = "student">
+            <option value = "nenhuma"  selected class="form-control">Click and pick a Student</option>
+              {% for element in lista2 %}
+                <option value = "{{element}}" class="form-control">{{ element }}</option>
+              {% endfor %}
+          </select>
+        </div>
+      </form>
+    </div>
+    <span style="margin-bottom: 10px;">
+      <div class="grid text-center">
+        <div class="p-2 bg-light">  
+          <ul class="list-group">
+            <li class="list-group-item active">Activities of {{student}}:</li>
+            {% for element in lista %}
+              <li class="list-group-item">{{ element }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="d-grid gap-1"  style="position: relative; bottom: -20px; width: 50%; border-radius: 20px; margin: auto; background-color: transparent; ">
+          <button form = "activities" type="submit">Submit</button>
+        </div>
+        <div class="grid text-center">
+          <h3>{{message}}</h3>
+        </div>
+      </div>
+    </span>
+
+</div>
+
+{% endblock %}

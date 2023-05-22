@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+
+<div class="d-grid">  
+  <div class="p-2" >
+    <ul class="nav nav-pills nav-fill" style="margin-top: 10px;">
+      <li class="nav-item">
+        <a aria-current="page" href="/"><button  class="ghost">Home</button></a>
+      </li>
+      <li class="nav-item">
+        <a   aria-current="page" href="/services"><button >Create a Presential Service</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page" href="/evaluations/"><button class="ghost">List all evaluations of a service </button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href ="/courses/"><button class="ghost">List all attendances for a course</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href="/activities/"><button class="ghost">List all activities by a student</button></a>
+      </li>
+      <li class="nav-item" style="margin-top: 5px;">
+        <a  aria-current="page"  href="/list_services"><button class="ghost">List all services/ Delete a service</button></a>
+      </li>
+    </ul>
+  </div>
+    <div class="grid text-center" style="margin-top:20px;">
+      <h4  style="color: white;"> New Service</h4>
+    </div>
+
+    <div class="p-2">
+      <form action = "/services" method="post">
+      <div class="mb-3">
+        <label for="service_name" class="form-label" style="color: white; font-weight: bold;"></label>
+        <textarea placeholder ="Write the name of the new Service" name ="service_name" class="form-control" id="service_name" rows="1" cols="5" style=" box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
+        0 5px 5px rgba(0,0,0,0.22);"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="service_content" class="form-label" style="color: white; font-weight: bold;"></label>
+        <textarea placeholder ="Write the Service description " name ="service_content" class="form-control" id="service_content" rows="5" style=" box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
+        0 5px 5px rgba(0,0,0,0.22);"></textarea>
+      </div>
+        <div class="d-grid gap-2">
+        <button  type="submit">Submit</button>
+      </div>
+      </form>
+
+      <div>
+        <h3>{{message}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
