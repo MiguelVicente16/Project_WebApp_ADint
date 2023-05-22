@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="d-grid">  
+
+  <div class="p-2" >
+    <ul class="nav nav-pills nav-fill" style="margin-top: 10px;">
+      <li class="nav-item">
+        <a aria-current="page" href="/"><button >Home</button></a>
+      </li>
+      <li class="nav-item">
+        <a   aria-current="page" href="/services"><button class="ghost">Create a Presential Service</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page" href="/evaluations/"><button class="ghost">List all evaluations of a service </button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href ="/courses/"><button class="ghost">List all attendances for a course</button></a>
+      </li>
+      <li class="nav-item">
+        <a  aria-current="page"  href="/activities/"><button class="ghost">List all activities by a student</button></a>
+      </li>
+      <li class="nav-item" style="margin-top: 5px;">
+        <a  aria-current="page"  href="/list_services"><button class="ghost">List all services/ Delete a service</button></a>
+      </li>
+    </ul>
+  </div>
+  
+  <div style="width:1200px; margin: 100px auto;">  
+    <div class="grid text-center">
+      
+        <div class="row">
+          <div class="col">
+            <div class="card"  style="width: 16rem;">
+              <img src="data:image/png;base64,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" 
+              class="card-img-top" alt="...">
+              <div class="card-body">
+            <h5 class="card-title">Create a Presential Service</h5>
+            <p class="card-text"></p>
+            <a href="/services" class="btn btn-primary">Go to</a>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col">
+            <div class="card"  style="width: 16rem;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxqFUy2GBToad_g-dDxNeaRcxwkNa6REpUw&usqp=CAU" 
+              class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">List all evaluations of a service </h5>
+                <p class="card-text"></p>
+                <a href="/evaluations/" class="btn btn-primary">Go to</a>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col">
+            <div class="card" style="width: 16rem;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy20jfD-aFhb0H72vvVQaLVildl6MfqAVirw&usqp=CAU" 
+              class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">List all attendances for a course</h5>
+                <p class="card-text"></p>
+                <a href="/courses/" class="btn btn-primary">Go to</a>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col">
+            <div class="card"  style="width: 16rem;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBxs_drg6iqRTluntK0lXDPONK77ytY2yjHg&usqp=CAU" 
+              class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">List all activities by a students</h5>
+                <p class="card-text"></p>
+                <a href="/activities/" class="btn btn-primary">Go to</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
